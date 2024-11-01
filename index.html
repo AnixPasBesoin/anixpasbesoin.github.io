@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnixPasBesoin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
         body {
             background-color: #FCFFFC;
@@ -32,6 +36,24 @@
             height: auto;
             border: 4px solid black;
         }
+
+        .footer {
+            background-color: #FCFFFC;
+            padding: 20px 0;
+        }
+        .footer a {
+            color: black;
+            margin: 0 15px;
+            text-decoration: none; /* Remove underline */
+        }
+        .footer a:hover {
+            color: gray; /* Change color on hover */
+            text-decoration: none; /* Ensure no underline on hover */
+        }
+        .social-icons {
+            display: flex; /* Align icons in a row */
+            justify-content: center; /* Center the icons */
+        }
     </style>
     <script src="https://unpkg.com/powerglitch@latest/dist/powerglitch.min.js"></script>
 </head>
@@ -48,10 +70,31 @@
     </video>
 </div>
 <h2>
-    <span id="anix" class="hidden glitch">Anix</span>
-    <br>
-    <span id="pas-besoin" class="hidden glitch">PasBesoin</span>
+
 </h2>
+</body>
+<footer class="footer text-center">
+    <div class="container">
+        <div id="social-icons" class="social-icons hidden glitch">
+            <a href="https://github.com/AnixPasBesoin" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github fa-lg"></i>
+            </a>
+            <a href="https://stackoverflow.com/users/3503855/anis-lounis-aka-anixpasbesoin" target="_blank" aria-label="Stack Overflow">
+                <i class="fab fa-stack-overflow fa-lg"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/anis-lounis" target="_blank" aria-label="Linkedin">
+                <i class="fab fa-linkedin fa-lg"></i>
+            </a>
+            <a href="https://x.com/AnixPasBesoin" target="_blank" aria-label="Twitter">
+                <i class="fab fa-twitter fa-lg"></i>
+            </a>
+            <a href="https://www.instagram.com/real.anis.lounis" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram fa-lg"></i>
+            </a>
+        </div>
+        <p class="mt-3"><b id="anix" class="hidden glitch">Anix</b><span id="pas-besoin" class="hidden glitch">PasBesoin</span></p>
+    </div>
+</footer>
 <script>
     async function boom() {
 
@@ -107,6 +150,9 @@
             await sleep(1000);
             // Show "PasBesoin"
             document.getElementById('pas-besoin').classList.remove('hidden');
+            await sleep(1000);
+            // Show social media links
+            document.getElementById('social-icons').classList.remove('hidden');
         }
 
         function glitchThings() {
@@ -145,5 +191,4 @@
     }
 
 </script>
-</body>
 </html>
