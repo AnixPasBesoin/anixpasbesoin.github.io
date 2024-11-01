@@ -132,9 +132,12 @@
             await sleep(2000);
             document.getElementById('till-then').classList.remove('hidden');
 
-            // Show "Watch this!" and the video
+            // Show "Watch this!"
             await sleep(2000);
             document.getElementById('watch-this').classList.remove('hidden');
+
+            // Show the video
+            await sleep(500);
             document.getElementById('video-section').classList.remove('hidden');
             const videoPlayer = document.getElementById('vid-player');
 
