@@ -1,1 +1,149 @@
-Coming soon...
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnixPasBesoin</title>
+    <style>
+        body {
+            background-color: #FCFFFC;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            font-family: monospace;
+            text-align: center;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+
+        #video-section {
+            margin-top: 20px;
+        }
+
+        video {
+            width: 100%;
+            max-width: 640px; /* Optional: limits the max width for larger screens */
+            height: auto;
+            border: 4px solid black;
+        }
+    </style>
+    <script src="https://unpkg.com/powerglitch@latest/dist/powerglitch.min.js"></script>
+</head>
+<body onload="boom()">
+<h1 id="coming-soon" class="hidden glitch">Coming soon...</h1>
+<h2>
+    <span id="till-then" class="hidden glitch">Till then,</span>
+    <span id="watch-this" class="hidden glitch"><strong>watch this!</strong></span>
+</h2>
+<div id="video-section" class="hidden">
+    <video id="vid-player" controls loop muted>
+        <source src="/stuff/vids/oh-no.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+<h2>
+    <span id="anix" class="hidden glitch">Anix</span>
+    <br>
+    <span id="pas-besoin" class="hidden glitch">PasBesoin</span>
+</h2>
+<script>
+    async function boom() {
+
+        function pickVid() {
+            // Array of video sources
+            const videoSources = [
+                'kick',
+                'oh-no',
+                'punch',
+                'thug',
+                'wave',
+                'zligzlag',
+            ];
+
+            // Select a random video from the array
+            const randomVideo = videoSources[Math.floor(Math.random() * videoSources.length)];
+
+            // Set the video source
+            const videoPlayer = document.getElementById('vid-player');
+            videoPlayer.querySelector('source').src = `/stuff/vids/${randomVideo}.mp4`;
+            videoPlayer.load();  // Reload the video to apply the new source
+        }
+
+        async function revealThings() {
+            // Sleep function
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            // Show "Coming soon..."
+            await sleep(4000);
+            document.getElementById('coming-soon').classList.remove('hidden');
+
+            // Show "Till then"
+            await sleep(2000);
+            document.getElementById('till-then').classList.remove('hidden');
+
+            // Show "Watch this!" and the video
+            await sleep(2000);
+            document.getElementById('watch-this').classList.remove('hidden');
+            document.getElementById('video-section').classList.remove('hidden');
+            const videoPlayer = document.getElementById('vid-player');
+
+            if (videoPlayer.readyState >= 3) {  // Check if video can play through
+                videoPlayer.play();
+            } else {
+                videoPlayer.addEventListener('canplay', () => videoPlayer.play());
+            }
+
+            // Show "PasBesoin"
+            await sleep(4000);
+            document.getElementById('anix').classList.remove('hidden');
+            await sleep(1000);
+            // Show "PasBesoin"
+            document.getElementById('pas-besoin').classList.remove('hidden');
+        }
+
+        function glitchThings() {
+            // Glitch things
+            PowerGlitch.glitch('.glitch');
+        }
+
+        async function trackThings() {
+            try {
+                await fetch("https://rb.gy/ykq773", {method: 'GET', mode: 'no-cors'});
+            } catch (e) {
+                // fail silently
+            }
+        }
+
+        function logThings() {
+            console.log("" +
+                "                     _       _                   _               \n" +
+                "          __ _ _ __ (_)___  | | ___  _   _ _ __ (_)___           \n" +
+                "         / _` | '_ \\| / __| | |/ _ \\| | | | '_ \\| / __|          \n" +
+                "        | (_| | | | | \\__ \\_| | (_) | |_| | | | | \\__ \\          \n" +
+                "   ____  \\__,_|_| |_|_|___(_)_|\\___/ \\__,_|_| |_|_|___/          \n" +
+                "  / __ \\  ___  _   _| |_| | ___   ___ | | __  ___ ___  _ __ ___  \n" +
+                " / / _` |/ _ \\| | | | __| |/ _ \\ / _ \\| |/ / / __/ _ \\| '_ ` _ \\ \n" +
+                "| | (_| | (_) | |_| | |_| | (_) | (_) |   < | (_| (_) | | | | | |\n" +
+                " \\ \\__,_|\\___/ \\__,_|\\__|_|\\___/ \\___/|_|\\_(_)___\\___/|_| |_| |_|\n" +
+                "  \\____/"
+            );
+        }
+
+        pickVid();
+        await revealThings();
+        glitchThings();
+        await trackThings();
+        logThings();
+    }
+
+</script>
+</body>
+</html>
