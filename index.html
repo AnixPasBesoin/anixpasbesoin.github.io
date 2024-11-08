@@ -45,15 +45,18 @@
             background-color: #FCFFFC;
             padding: 20px 0;
         }
+
         .footer a {
             color: black;
             margin: 0 15px;
             text-decoration: none; /* Remove underline */
         }
+
         .footer a:hover {
             color: gray; /* Change color on hover */
             text-decoration: none; /* Ensure no underline on hover */
         }
+
         .social-icons {
             display: flex; /* Align icons in a row */
             justify-content: center; /* Center the icons */
@@ -83,7 +86,8 @@
             <a href="https://github.com/AnixPasBesoin" target="_blank" aria-label="GitHub">
                 <i class="fab fa-github fa-lg"></i>
             </a>
-            <a href="https://stackoverflow.com/users/3503855/anis-lounis-aka-anixpasbesoin" target="_blank" aria-label="Stack Overflow">
+            <a href="https://stackoverflow.com/users/3503855/anis-lounis-aka-anixpasbesoin" target="_blank"
+               aria-label="Stack Overflow">
                 <i class="fab fa-stack-overflow fa-lg"></i>
             </a>
             <a href="https://www.linkedin.com/in/anis-lounis" target="_blank" aria-label="Linkedin">
@@ -96,7 +100,8 @@
                 <i class="fab fa-instagram fa-lg"></i>
             </a>
         </div>
-        <p class="mt-3"><b id="anix" class="hidden glitch">Anix</b><span id="pas-besoin" class="hidden glitch">PasBesoin</span></p>
+        <p class="mt-3"><b id="anix" class="hidden glitch">Anix</b><span id="pas-besoin"
+                                                                         class="hidden glitch">PasBesoin</span></p>
     </div>
 </footer>
 <script>
@@ -171,10 +176,12 @@
         }
 
         async function trackThings() {
-            try {
-                await fetch("https://rb.gy/ykq773", {method: 'GET', mode: 'no-cors'});
-            } catch (e) {
-                // fail silently
+            if (window.location.hostname.toLocaleLowerCase().endsWith("github.io")) {
+                try {
+                    await fetch("https://rb.gy/09gdid", {method: 'GET', mode: 'no-cors'});
+                } catch (e) {
+                    // no-op
+                }
             }
         }
 
